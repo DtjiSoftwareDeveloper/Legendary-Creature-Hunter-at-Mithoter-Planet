@@ -1999,6 +1999,23 @@ def main():
                     to_be_sold: Item = new_game.player.item_inventory.get_items()[item_index]
                     new_game.player.sell_item(to_be_sold)
 
+                    runes: list = []  # initial value
+                    for item in new_game.player.item_inventory.get_items():
+                        if isinstance(item, Rune):
+                            runes.append(item)
+
+                    print("Below is a list of runes you have.\n")
+                    for rune in runes:
+                        print(str(rune) + "\n")
+
+                    rune_index: int = int(input("Please enter the index of the rune you want to level up: "))
+                    while rune_index < 0 or rune_index >= len(runes):
+                        rune_index = int(input("Sorry, invalid input! "
+                                               "Please enter the index of the rune you want to level up: "))
+
+                    chosen_rune: Rune = runes[rune_index]
+                    new_game.player.level_up_rune(chosen_rune)
+
             elif action == "PLAY ADVENTURE MODE":
                 # Clearing up the command line window
                 clear()
