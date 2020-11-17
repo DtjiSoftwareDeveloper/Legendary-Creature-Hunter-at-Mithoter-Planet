@@ -1707,6 +1707,7 @@ def main():
     except FileNotFoundError:
         name: str = input("Please enter your name: ")
         player: Player = Player(name, Location(cities[0], 2, 2))
+        player.add_legendary_creature(potential_legendary_creatures[0])
         new_game = Game(player, opponent_trainers, cities, potential_legendary_creatures)
 
     old_now = datetime.now()
