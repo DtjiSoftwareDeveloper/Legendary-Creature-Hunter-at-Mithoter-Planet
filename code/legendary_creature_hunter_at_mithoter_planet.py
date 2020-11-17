@@ -1097,8 +1097,9 @@ class LegendaryCreature:
 
         res += "Runes equipped to this legendary creature:\n"
         for i in range(1, 9):
-            res += "Slot #" + str(i) + "\n"
-            res += str(self.__runes[i]) + "\n"
+            if i in self.__runes.keys():
+                res += "Slot #" + str(i) + "\n"
+                res += str(self.__runes[i]) + "\n"
 
         res += "Crit Rate: " + str(self.crit_rate * 100) + "%\n"
         res += "Crit Damage: " + str(self.crit_damage * 100) + "%\n"
